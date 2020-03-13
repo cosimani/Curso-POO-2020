@@ -56,7 +56,7 @@ Inicio de clases con COVID-19
 .. figure:: images/clase01/COVID-19.png
 	:target: images/clase01/presentacion_presidente_Ministros_COVID-19.pdf
 
-
+**¿Qué alternativas tenemos para tener clases y cumplir con las recomendaciones?**
 
 
 
