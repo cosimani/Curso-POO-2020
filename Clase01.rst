@@ -48,12 +48,12 @@ Clase 01 - POO 2020
 		- Resolver los problemas consultando documentación técnica de distintas fuentes
 
 
-Inicio de clases con COVID-19
-=============================
+Inicio de clases en época del COVID-19
+======================================
 
 **Documento del Ministerio de Salud**
 
-.. figure:: images/clase01/COVID-19.png
+.. figure:: images/clase01/COVID-19_mini.png
 	:target: images/clase01/presentacion_presidente_Ministros_COVID-19.pdf
 
 **¿Qué alternativas tenemos para tener clases y cumplir con las recomendaciones?**
