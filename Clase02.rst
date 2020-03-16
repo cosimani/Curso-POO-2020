@@ -57,9 +57,9 @@ Función Genérica
 
 .. code-block:: c
 
-	Con T = int     >    void imprimir( int v[], int cantidad )
+	Con T = int     utiliza -->     void imprimir( int v[], int cantidad )
 
-	Con T = float   >    void imprimir( float v[], int cantidad )
+	Con T = float   utiliza -->     void imprimir( float v[], int cantidad )
 
 - Aquí, la única operación que realizamos sobre los valores de tipo T es:
 
