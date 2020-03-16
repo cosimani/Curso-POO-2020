@@ -57,15 +57,15 @@ Función Genérica
 
 .. code-block:: c
 
-	Con T = int     >    void imprimir(int v[], int cantidad)
+	Con T = int     >    void imprimir( int v[], int cantidad )
 
-	Con T = float   >    void imprimir(float v[], int cantidad)
+	Con T = float   >    void imprimir( float v[], int cantidad )
 
 - Aquí, la única operación que realizamos sobre los valores de tipo T es:
 
 .. code-block:: c
 
-	cout << v[i]
+	cout << v[ i ]
 
 - Esto pone una restricción, ya que sólo se admitirá los tipos de datos para los que se puedan imprimir en pantalla con:
 
