@@ -20,45 +20,59 @@ Clases
 
 .. code-block:: c
 
-	class ClaseEjemplo  {
+	class Poste  {
 	    // Lista de miembros (generalmente funciones y datos)
-	    // Los datos no pueden ser inicializados (es una declaración)
+	    // Los datos no pueden ser inicializados fuera del constructor 
 	    // Si las funciones se definen fuera, se usa el operador :: 
 	    // :: es el operador de acceso a ámbito
 	};
+
+
+.. code-block:: c
+
+	class Poste;  // Esto es la declaración de una clase.
+
+.. code-block:: c
+
+	class Poste  {  // Esto es la declaración y definición de una clase.
+	     
+	};
+
+
+
 
 **Ejemplo:**
 
 .. code-block:: c
 
 	#include <iostream>
-	using namespace std;
-
-	class Punto  {
+	
+	class Poste  {
 	private:
-	    // Datos miembro de la clase "Punto"
-	    int a, b;
+	    // Datos miembro de la clase Poste. También llamados atributos.
+	    int altura;
+	    int seccion;
 		
 	public:
-	    // Funciones miembro de la clase "Punto"
-	    void getDatos( int &a2, int &b2 );
-	    void setDatos( int a2, int b2 )  {
-	        a = a2;
-	        b = b2;
+	    // Funciones miembro de la clase Poste. Llamados también métodos.
+	    void getDatos( int & a, int & s );
+	    void setDatos( int a, int s )  {
+	        altura = a;
+	        seccion = s;
 	    }
 	};
 
-	void Punto::getDatos( int &a2, int &b2 )  {
-	    a2 = a;
-	    b2 = b;
+	void Poste::getDatos( int & a, int & s )  {
+	    a = altura;
+	    s = seccion;
 	}
 
 	int main()  {
-	    Punto punto1;
+	    Poste poste;
 		int x, y;  // Variables donde se copiarán los valores de punto1
 
-	    punto1.setDatos( 12, 32 );
-	    punto1.getDatos( x, y );
+	    poste.setDatos( 12, 32 );
+	    poste.getDatos( x, y );
 
 	    cout << "(" << x << “, ” << y << “)” << endl;
 	}
@@ -70,97 +84,100 @@ Clases
 
 .. code-block:: c
 
-	class Punto  {
-	public:
-	    Punto( int a2, int b2 );
-
-	    void getDatos( int &a2, int &b2 );
-	    void setDatos( int a2, int b2 );
-		
+	class Poste  {
 	private:
-	    // Datos miembro de la clase "Punto"
-	    int a, b;
+	    int altura;
+	    int seccion;
+
+	public:
+	    Poste( int a, int s );
+
+	    void getDatos( int & a, int & s );
+	    void setDatos( int a, int s );
 	};
 
-	Punto::Punto( int a2, int b2 )  {
-	    a = a2;
-	    b = b2;
+	Poste::Poste( int a, int s )  {
+	    altura = a;
+	    seccion = s;
 	}
 
-	void Punto::getDatos( int &a2, int &b2 )  {
-	    a2 = a;
-	    b2 = b;
+	void Poste::getDatos( int & a, int & s )  {
+	    a = altura;
+	    s = seccion;
 	}
 
-	void Punto::setDatos( int a2, int b2 )  {
-	    a = a2;
-	    b = b2;
+	void Poste::setDatos( int a, int s )  {
+	    altura = a;
+	    seccion = s;
 	}
 
 **Cuestiones sobre declaraciones**
 
 .. code-block:: c
 
-	Punto punto1;  // Llama al constructor sin parámetros. En esta última versión 
-	               // de Punto, esto no serviría, ya que no hay constructor sin parámetros. 
-				   // Si no se especifica un constructor, el compilador crea uno (igual que 
-				   // en Java). Por lo tanto, esta declaración sirve para una clase Punto 
-				   // donde el programador no escriba constructor.
+	Poste poste;  // Llama al constructor sin parámetros. En esta última versión 
+	              // de Poste, esto no serviría, ya que no hay constructor sin parámetros. 
+			      // Si no se especifica un constructor, el compilador crea uno. 
+			      // Por lo tanto, esta declaración sirve para una clase Poste 
+				  // donde el programador no escriba constructor, o escriba uno sin recibir parámetros.
 
-	Punto punto1();  // Se entiende como el prototipo de una función sin parámetros que 
-	                 // devuelve un objeto Punto. Es decir, no sirve para instanciar un 
-					 // objeto con el contructor sin parámetros de Punto.
+	Poste poste();  // Se entiende como el prototipo de una función sin parámetros que 
+	                // devuelve un objeto Poste. Es decir, no sirve para instanciar un 
+					// objeto con el contructor sin parámetros de Poste.
 
-	Punto punto1( 12, 43 );  // Válido
-	Punto punto2( 45, 34 );  // Válido
+	Poste poste1( 12, 43 );  // Válido
+	Poste poste2( 45, 34 );  // Válido
 
 
 **Inicialización de objetos**
 
 .. code-block:: c
 
-	Punto( int a2, int b2 )  {
-	    a = a2;
-	    b = b2;
+	// Lo siguiente se permite y funciona casi siempre (salvo cuando usemos const, que veremos más adelante).
+	// Hay que tener presente que aquí, primero se reserva lugar en memoria para altura y seccion conteniendo
+	// basura y luego se le asignan los valores que vienen en los parámetros del constructor.
+	Poste( int a, int s )  {
+	    altura = a;
+	    seccion = s;
 	}
 
-	// O también se permite:
+	// La siguiente sería la manera más correcta de inicializar los atributos de un objeto. En este caso, altura y
+	// seccion nunca contienen basura, sino que directamente se crean en memoria con el valor que vienen en los
+	// parámetros del constructor.
+	Poste::Poste( int a, int s ) : altura( a ), seccion( s )  {  }
 
-	Punto::Punto( int a2, int b2 ) : a( a2 ), b( b2 )  {  }
-
-	Punto::Punto() : a( 0 ), b( 0 )  {  }
+	Poste::Poste() : a( 0 ), b( 0 )  {  }
 
 **El puntero this**
 
+- Es un puntero que ya se exite dentro del ámbito de una clase y apunta al propio objeto instanciado.
+- Se utiliza para acceder a los atributos y métodos.
+
 .. code-block:: c
 
-	#include <iostream>
-	using namespace std;
-
-	class Punto  {
-	public:
-	    // Constructor
-	    Punto( int a2, int b2 )  {  }
-	
-	    // Funciones miembro de la clase "Punto"
-	    void getDatos( int &a2, int &b2 )  {  }
-	    void setDatos( int a2, int b2 );
-	
+	class Poste  {
 	private:
-	    // Datos miembro de la clase "Punto"
-	    int a, b;
+	    int altura;
+	    int seccion;
+
+	public:
+	    Poste( int altura, int seccion );
+
+	    void getDatos( int & altura, int & seccion );
+	    void setDatos( int altura, int seccion );
 	};
 
-	void Punto::setDatos( int a2, int b2 ) {
-	    a = a2;
-	    b = b2;
+	Poste::Poste( int altura, int seccion ) : altura( altura ), seccion( seccion )  {  
 	}
 
-	// O lo podemos hacer con this:
+	void Poste::getDatos( int & altura, int & seccion )  {
+	    altura = this->altura;
+	    seccion = this->seccion;
+	}
 
-	void Punto::setDatos( int a2, int b2 ) {
-	    this->a = a2;
-	    this->b = b2;
+	void Poste::setDatos( int altura, int seccion )  {
+	    this->altura = altura;
+	    this->seccion = seccion;
 	}
 
 
@@ -168,11 +185,36 @@ Clases
 
 .. code-block:: c
 
-	ClaseA::~ClaseA()  {
-	    a = 0;
-	    b = 0;
+	Poste::~Poste()  {
+	    altura = 0;  
+	    seccion = 0;
 	}
 	
+
+
+Convenciones para escribir nuestro código
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Los nombres de las clases, structs y enum comienzan con mayúsculas (usando UpperCamelCase).
+- Nombres de variables, funciones y métodos comienzan con minúsculas (usando lowerCamelCase y con palabras separadas con guión bajo).
+
+- Ejemplos para nombres de clases: Persona - PrimeraClase - Ventana
+- Ejemplos para nombres de variables y funciones: velocidad - sumarNumeros - alto_imagen - anchoImagen
+
+**CamelCase**: Es escribir con la forma de jorobas de camello con las mayúsculas y minúsculas.
+
+UpperCamelCase: La primera letra de cada palabra es mayúscula. Ejemplo: EjemploDeUpperCamelCase.
+lowerCamelCase: Igual a UpperCamelCase con excepción de la primer palabra. Ejemplo: ejemploDeLowerCamelCase
+
+
+**Ejercicio**
+
+- Crear una clase Jugador con atributos int velocidad, int fuerza y std::string nombre
+- Usar constructor inicializando de la manera recomendada la velocidad y fuerza en 0 y nombre "sin nombre" 
+- Crear los métodos setter y getter para setear y obtener los valores de los atributos
+- Incluir el destructor
+- En la función main crear un std::vector< Jugador > e insertar 10 jugadores distintos
+- Por último, publicar los datos de cada uno de los jugadores con std::cout
 
 
 **Ejercicio 2**
