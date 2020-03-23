@@ -6,40 +6,6 @@ Clase 06 - POO 2019
 ===================
 (Fecha: 29 de marzo)
 
-**Constructores con argumentos por defecto**
-
-.. code-block:: c
-
-	class ClaseA  {
-	public:
-	    ClaseA( int a = 10, int b = 20 ) : a( a ), b( b )  {  }
-	
-	    void verDatos( int &a, int &b )  {
-	        a = this->a;
-	        b = this->b;
-	    }
-
-	private:
-	    int a, b;
-	};
-
-	int main( int argc, char** argv )  {
-	    ClaseA * objA = new ClaseA;
-
-	    int a, b;
-	    objA->verDatos( a, b );
-	
-	    std::cout << "a = " << a << " b = " << b << std::endl;
-
-	    return 0;
-	}
-
-	// Probar con:	
-	
-	ClaseA( int c, int a = 10, int b = 20 ) : a( a ), b( b ), c( 0 )  {  }
-
-	ClaseA( int a = 10, int b = 20, int c ) : a( a ), b( b ), c( 0 )  {  }
-
 
 QLineEdit
 ^^^^^^^^^
