@@ -196,7 +196,7 @@ Clases
 Convenciones para escribir nuestro código
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- Los nombres de las clases, structs y enum comienzan con mayúsculas (usando ``UpperCamelCase'').
+- Los nombres de las clases, structs y enum comienzan con mayúsculas (usando ``UpperCamelCase´´).
 - Nombres de variables, funciones y métodos comienzan con minúsculas (usando lowerCamelCase y con palabras separadas con guión bajo).
 
 - Ejemplos para nombres de clases: Persona - PrimeraClase - Ventana
