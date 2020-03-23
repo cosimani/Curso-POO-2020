@@ -69,7 +69,7 @@ Clases
 
 	int main()  {
 	    Poste poste;
-	    int x, y;  // Variables donde se copiarán los valores de punto1
+	    int x, y;  // Variables donde se copiarán los valores de poste
 
 	    poste.setDatos( 12, 32 );
 	    poste.getDatos( x, y );
