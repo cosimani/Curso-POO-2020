@@ -69,7 +69,7 @@ Clases
 
 	int main()  {
 	    Poste poste;
-		int x, y;  // Variables donde se copiarán los valores de punto1
+	    int x, y;  // Variables donde se copiarán los valores de punto1
 
 	    poste.setDatos( 12, 32 );
 	    poste.getDatos( x, y );
@@ -117,9 +117,9 @@ Clases
 
 	Poste poste;  // Llama al constructor sin parámetros. En esta última versión 
 	              // de Poste, esto no serviría, ya que no hay constructor sin parámetros. 
-			      // Si no se especifica un constructor, el compilador crea uno. 
-			      // Por lo tanto, esta declaración sirve para una clase Poste 
-				  // donde el programador no escriba constructor, o escriba uno sin recibir parámetros.
+	              // Si no se especifica un constructor, el compilador crea uno. 
+	              // Por lo tanto, esta declaración sirve para una clase Poste 
+	              // donde el programador no escriba constructor, o escriba uno sin recibir parámetros.
 
 	Poste poste();  // Se entiende como el prototipo de una función sin parámetros que 
 	                // devuelve un objeto Poste. Es decir, no sirve para instanciar un 
@@ -133,17 +133,18 @@ Clases
 
 .. code-block:: c
 
-	// Lo siguiente se permite y funciona casi siempre (salvo cuando usemos const, que veremos más adelante).
-	// Hay que tener presente que aquí, primero se reserva lugar en memoria para altura y seccion conteniendo
-	// basura y luego se le asignan los valores que vienen en los parámetros del constructor.
+	// Lo siguiente se permite y funciona casi siempre, (salvo cuando usemos const, que
+	// veremos más adelante). Hay que tener presente que aquí, primero se reserva lugar 
+	// en memoria para altura y seccion conteniendo basura y luego se le asignan los 
+	// valores que vienen en los parámetros del constructor.
 	Poste( int a, int s )  {
 	    altura = a;
 	    seccion = s;
 	}
 
-	// La siguiente sería la manera más correcta de inicializar los atributos de un objeto. En este caso, altura y
-	// seccion nunca contienen basura, sino que directamente se crean en memoria con el valor que vienen en los
-	// parámetros del constructor.
+	// La siguiente sería la manera más correcta de inicializar los atributos de un 
+	// objeto. En este caso, altura y seccion nunca contienen basura, sino que 
+	// directamente se crean en memoria con el valor que vienen en los parámetros del constructor.
 	Poste::Poste( int a, int s ) : altura( a ), seccion( s )  {  }
 
 	Poste::Poste() : a( 0 ), b( 0 )  {  }
