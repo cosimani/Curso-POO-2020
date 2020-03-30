@@ -2,15 +2,13 @@
 
 .. _rcs_subversion:
 
-Clase 05 - POO 2019
+Clase 05 - POO 2020
 ===================
-(Fecha: 26 de marzo)
+(Fecha: 1 de abril)
 
 
 
-
-
-:Tarea para Clase 6:
+:Tarea para Clase 7:
 	Ver `Tutorial Qt qDebug <https://www.youtube.com/watch?v=z4cespk-EMk>`_ de `Videos tutoriales de Qt <https://www.youtube.com/playlist?list=PL54fdmMKYUJvn4dAvziRopztp47tBRNum>`_
 
 	Ver `Tutorial Qt QString <https://www.youtube.com/watch?v=gAfMOPKsgYk>`_ de `Videos tutoriales de Qt <https://www.youtube.com/playlist?list=PL54fdmMKYUJvn4dAvziRopztp47tBRNum>`_
@@ -135,22 +133,6 @@ Signals y slots
 	}
 
 	
-
-
-
-
-
-
-
-
-
-Fechas para parciales
-^^^^^^^^^^^^^^^^^^^^^
-
-- Primer parcial: 3 de mayo
-- Segundo parcial: 7 de junio
-- Tercer parcial: 14 de junio
-- Recuperatorios de los tres parciales en la última semana de clases.
 
 
 
