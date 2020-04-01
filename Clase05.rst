@@ -76,7 +76,7 @@ Primer aplicación en Qt con interfaz gráfica
 
 **Ejemplo**
 
-- Explicación de este Ejemplo en un `Video tutorial en Youtube ( https://youtu.be/1gW_DlNkaJA ) <https://youtu.be/1gW_DlNkaJA>`_
+- Explicación para crear una aplicación Qt en `Youtube ( https://youtu.be/1gW_DlNkaJA ) <https://youtu.be/1gW_DlNkaJA>`_
 
 .. code-block:: c
 
@@ -109,7 +109,7 @@ Signals y slots
 - Los slots reciben estas signals.
 - SIGNAL() y SLOT() son macros (convierten a cadena).
 - emisor y receptor son punteros a QObject:
-- Explicación extra en un `Video tutorial en Youtube ( https://youtu.be/5hmzxFZjU6U ) <https://youtu.be/5hmzxFZjU6U>`_
+- Explicación extra en `Youtube ( https://youtu.be/5hmzxFZjU6U ) <https://youtu.be/5hmzxFZjU6U>`_
 
 
 .. code-block:: c
