@@ -210,7 +210,7 @@ lowerCamelCase: Igual a UpperCamelCase con excepción de la primer palabra. Ejem
 
 **Ejercicio**
 
-- Explicación de este ejercicio en un `Video tutorial en Youtube <https://youtu.be/R3K7rQ4DSX8>`_
+- Explicación de este ejercicio en un `Video tutorial en Youtube ( https://youtu.be/R3K7rQ4DSX8 ) <https://youtu.be/R3K7rQ4DSX8>`_
 - Crear una clase Jugador con atributos ``int velocidad``, ``int fuerza`` y ``std::string nombre``
 - Usar constructor inicializando de la manera recomendada la velocidad y fuerza en 0 y nombre "sin nombre" 
 - Crear los métodos setter y getter para setear y obtener los valores de los atributos

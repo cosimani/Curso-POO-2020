@@ -73,6 +73,11 @@ Primer aplicación en Qt con interfaz gráfica
 	- En 2012, Digia compra Qt y comercializa las licencias 
 	- Digia desarrolló herramientas para usar Qt en iOS y Android.
 		
+
+**Ejemplo**
+
+- Explicación de este Ejemplo en un `Video tutorial en Youtube ( https://youtu.be/1gW_DlNkaJA ) <https://youtu.be/1gW_DlNkaJA>`_
+
 .. code-block:: c
 
 	#include <QApplication>	
@@ -104,6 +109,8 @@ Signals y slots
 - Los slots reciben estas signals.
 - SIGNAL() y SLOT() son macros (convierten a cadena).
 - emisor y receptor son punteros a QObject:
+- Explicación extra en un `Video tutorial en Youtube ( https://youtu.be/5hmzxFZjU6U ) <https://youtu.be/5hmzxFZjU6U>`_
+
 
 .. code-block:: c
 
