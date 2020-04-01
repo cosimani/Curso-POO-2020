@@ -141,7 +141,13 @@ Signals y slots
 
 	
 
+**Ejercicio:** 
 
+- Crear una aplicación Qt que inicie con un botón que diga "Mostrar segundo boton y label"
+- Al hacer clic sobre este botón se deberá ocultar este botón, se visualizará un nuevo botón y un label
+- El segundo botón dirá "Ocultar label y mostrar boton final"
+- Al hacer clic en el segundo botón, se ocultará este y el label, para mostrar el último botón
+- El último botón dirá "Cerrar aplicacion" y cerrará la aplicación al presionarlo
 
 
 .. ..
