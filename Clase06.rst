@@ -2,9 +2,9 @@
 
 .. _rcs_subversion:
 
-Clase 06 - POO 2019
+Clase 06 - POO 2020
 ===================
-(Fecha: 29 de marzo)
+(Fecha: 7 de abril)
 
 
 QLineEdit
@@ -91,8 +91,9 @@ Macro Q_OBJECT
 - Cuando el valor del QSlider se modifique, colocar como título de la ventana el mismo valor (de 0 a 100). 
 	
 
-**Ejercicio 4**
+**Ejercicio**
 
+- Explicación de este ejercicio en un `Video tutorial en Youtube ( https://youtu.be/T0tgFKFTl7c ) <https://youtu.be/T0tgFKFTl7c>`_
 - Construir un login.
 - Usar asteriscos para la clave.
 - Detectar enter para simular la pulsación del botón.
@@ -100,6 +101,7 @@ Macro Q_OBJECT
 - Si se ingresa otra clave se borrará el texto de los QLineEdit.
 
 - Tener en cuenta que este ejercicio requiere conocer cómo se define un slot propio.
+
 
 
 .. ..
