@@ -2,9 +2,9 @@
 
 .. _rcs_subversion:
 
-Clase 07 - POO 2019
+Clase 07 - POO 2020
 ===================
-(Fecha: 5 de abril)
+(Fecha: 8 de abril)
 
 QGroupBox
 ^^^^^^^^^ 
