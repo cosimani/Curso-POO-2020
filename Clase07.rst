@@ -6,6 +6,7 @@ Clase 07 - POO 2020
 ===================
 (Fecha: 8 de abril)
 
+
 QGroupBox
 ^^^^^^^^^ 
 
@@ -21,6 +22,13 @@ QGroupBox
 	layout->addWidget(clave, 2, 0, 1, 2);
 	
 	grupo->setLayout(layout);
+
+
+**Ejercicio**
+
+- Convertir a std::string un int
+- Similar a lo que hace QString::number( int )
+
 
 **Ejercicio 4**
 
