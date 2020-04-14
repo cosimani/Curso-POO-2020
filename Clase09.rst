@@ -9,101 +9,22 @@ Clase 09 - POO 2019
 
 
 
+:Tarea para Clase 11:
+	Ver `Tutorial Qt QVector <https://www.youtube.com/watch?v=Z9u2yDPh57U>`_ de `Videos tutoriales de Qt <https://www.youtube.com/playlist?list=PL54fdmMKYUJvn4dAvziRopztp47tBRNum>`_
 
-Parámetros desde la línea de comandos
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	Ver `Tutorial Qt QDateTime <https://www.youtube.com/watch?v=bZmGhmKv5iE>`_ de `Videos tutoriales de Qt <https://www.youtube.com/playlist?list=PL54fdmMKYUJvn4dAvziRopztp47tBRNum>`_
 
-- Escribir el siguiente programa y ejecutarlo desde la línea de comandos incluyendo parámetros:
+	Ver `Tutorial Qt signals & slots <https://www.youtube.com/watch?v=IITGountoO4>`_ de `Videos tutoriales de Qt <https://www.youtube.com/playlist?list=PL54fdmMKYUJvn4dAvziRopztp47tBRNum>`_
 
-.. code-block:: c
 
-	#include <iostream>
+Entrega de ejercicios - Ranking - Nota tercer parcial
+=====================================================
 
-	int main( int argc, char** argv )  {
-	    std::cout << "Hay " << argc << " argumentos:" << std::endl;
-	    for ( int i = 0; i < argc; ++i ) {
-	        std::cout << argv[ i ] << std::endl;
-	    }
-	}
+- Se deberán entregar todos aquellos ejercicios que están enumerados en las clases de GitHub
+- Cada alumno entregará sólo algunos ejercicios ordenados según este `Documento en Drive <https://docs.google.com/spreadsheets/d/1tsa7UoKS4pNgwHs7VlwctTBlTi3XOCeSMNd6JIHfvbA>`_
 
 
 
-QByteArray
-^^^^^^^^^^
-
-- Se podría decir que es administrador de un char*
-- Se puede usar el operador []
-- Almacena \\000 al final de cada objeto QByteArray
-
-
-**CamelCase**: Es escribir con la forma de jorobas de camello con las mayúsculas y minúsculas. 
-
-- UpperCamelCase: La primera letra de cada palabra es mayúscula. Ejemplo: EjemploDeUpperCamelCase.
-- lowerCamelCase: Igual a UpperCamelCase con excepción de la primer palabra. Ejemplo: ejemploDeLowerCamelCase
-
-
-
-El preprocesador
-^^^^^^^^^^^^^^^^
-
--	Analiza el archivo fuente antes de la compilación real
--	Realiza las sustituciones de macros
--	Una macro es un patrón de sustitución formado por expresiones textuales
--	Procesa las directivas (``#include``, ``#define``, ``#ifndef``, ...)
--	Elimina los comentarios.
-
-**Directivas #ifdef #endif #ifndef**
-
-- Con ``#ifdef`` si la macro está definida, entonces hace lo siguiente hasta encontrar un ``#endif``
-- ``#ifndef`` pregunta si no está definida
-
-**Directiva #include**
-
-- Inserta archivos
-- Influye sobre el ámbito y los identificadores
-
-.. code-block:: c
-
-	#include <nombre de fichero cabecera>
-	#include "nombre de fichero de cabecera"
-
-**Directiva #define**
-
-- Define macros para sustituir cada vez que se encuentre el identificador.
-
-.. code-block:: c
-
-	#define identificador <secuencia>
-	
--	Si 'secuencia' no existe, el identificador será eliminado cada vez que aparezca
--	No es necesario añadir un punto y coma al final
--	Termina en el primer retorno de línea encontrado
--	Podríamos definir un nuevo lenguaje
- 
-.. figure:: images/clase07/define.png
-
-
-**Ejercicio:**
-
-- Nuevo proyecto Empty 
-- Crear un .h vacío y definir una clase Persona con int edad y string nombre.
-- En el archivo ``main.cpp`` incluir dos veces el archivo .h
-- Tratar de resolver el problema sólo modificando el .h
-
-
-Guardián de inclusión múltiple
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
- - Este problema se soluciona con el uso del **Guardián de inclusión múltiple**:
-
- .. code-block:: c
-
-	#ifndef PRINCIPAL_H
-	#define PRINCIPAL_H
-
-	// . . . 
-
-	#endif // PRINCIPAL_H
 
 
 
