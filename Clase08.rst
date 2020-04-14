@@ -192,10 +192,6 @@ QByteArray
 - Almacena \\000 al final de cada objeto QByteArray
 
 
-**CamelCase**: Es escribir con la forma de jorobas de camello con las mayúsculas y minúsculas. 
-
-- UpperCamelCase: La primera letra de cada palabra es mayúscula. Ejemplo: EjemploDeUpperCamelCase.
-- lowerCamelCase: Igual a UpperCamelCase con excepción de la primer palabra. Ejemplo: ejemploDeLowerCamelCase
 
 
 
@@ -250,9 +246,9 @@ El preprocesador
 Guardián de inclusión múltiple
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
- - Este problema se soluciona con el uso del **Guardián de inclusión múltiple**:
+- Este problema se soluciona con el uso del **Guardián de inclusión múltiple**:
 
- .. code-block:: c
+.. code-block:: c
 
 	#ifndef PRINCIPAL_H
 	#define PRINCIPAL_H
