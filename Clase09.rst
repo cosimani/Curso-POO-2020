@@ -107,7 +107,7 @@ QTextEdit
 - Interpreta tags HTML
 - Seteamos texto con setPlainText()
 
-**Ejercicio 7**
+**Ejercicio 6**
 
 - Crear una aplicación que inicie con un login validando el usuario admin:123
 - Luego de ingresar el usuario válido, mostrar un nuevo QWidget con las siguientes características:
@@ -163,7 +163,7 @@ Dibujar a mano sobre un QWidget
 	void drawText(int x, int y, QString & text)
 	void fillRect(int x, int y, int ancho, int alto)
 	
-**Ejercicio:** Comenzar un proyecto vacío con QtCreator y diseñar un login de usuarios:
+**Ejercicio 7:** Comenzar un proyecto vacío con QtCreator y diseñar un login de usuarios:
  
 .. figure:: images/clase07/login.png 
 
