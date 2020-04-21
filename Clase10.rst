@@ -2,9 +2,9 @@
 
 .. _rcs_subversion:
 
-Clase 10 - POO 2019
+Clase 10 - POO 2020
 ===================
-(Fecha: 16 de abril)
+(Fecha: 21 de abril)
 
 .. figure:: images/clase09/java_vs_cplusplus.gif
 
