@@ -29,8 +29,8 @@ Clase QNetworkAccessManager
 
 - Por defecto, el módulo 'gui' y el módulo 'core' están incluidos.
 - Para utilizar HTTPS, Qt utiliza OpenSSL https://www.openssl.org/source
-	- Posiblemente sea más fácil descargarlo desde https://slproweb.com/products/Win32OpenSSL.html
-	- Por ejemplo, para 64 bits elegir `Win64 OpenSSL v1.0.2h <https://slproweb.com/download/Win64OpenSSL-1_0_2h.exe>`_
+	- Se puede descargar desde https://slproweb.com/products/Win32OpenSSL.html
+	- Por ejemplo, para 64 bits elegir `Win64 OpenSSL v1.1.1g <https://slproweb.com/download/Win64OpenSSL-1_1_1g.exe>`_
 
 Clase QIODevice
 ^^^^^^^^^^^^^^^
