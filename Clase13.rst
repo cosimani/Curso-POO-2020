@@ -2,174 +2,149 @@
 
 .. _rcs_subversion:
 
-Clase 13 - POO 2019
+Clase 13 - POO 2020
 ===================
-(Fecha: 03 de mayo)
+(Fecha: 29 de abril)
 
-Polimorfismo
-^^^^^^^^^^^^
 
-- Lo utilizamos con punteros.
-- Nos permite acceder a objetos de la clase derivada usando un puntero a la clase base.
-- Sin embargo, sólo podemos acceder a datos y funciones que existan en la clase base.
-- Los datos y funciones propias de la derivada quedan inaccesibles.
+Clase QNetworkAccessManager
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Permite enviar y recibir solicitudes a la red
+- Se obtiene un objeto ``QNetworkReply`` con toda la información recibida
 
 .. code-block:: c
 
-	class Persona  {
-	public:
-	    Persona(QString nombre) : nombre(nombre)  {  }
-	    QString verNombre()  {  return "Nombre: " + nombre;  }
+	QNetworkAccessManager* manager = new QNetworkAccessManager;
 
-	protected:  // Para acceso desde las clases derivadas
-	    QString nombre;
-	};
+	connect(manager, SIGNAL(finished(QNetworkReply*)), this, SLOT(slot_respuesta(QNetworkReply*)));
 
-	class Empleado : public Persona  {
-	public:
-	    Empleado(QString nombre) : Persona(nombre)  {  }
-	    QString verNombre()  {  return "Empleado: " + nombre;  }
-	    void mostrarAlgo()  {  qDebug() << "Algo";  }
-	};
+	manager->get(QNetworkRequest(QUrl("http://mi.ubp.edu.ar")));
 
-	class Estudiante : public Persona  {
-	public:
-	    Estudiante(QString nombre) : Persona(nombre)  {  }
-	    QString verNombre()  {  return "Estudiante: " + nombre;  }
-	};
+- Para poder utilizar las clases de network hay que agregar en el .pro
 
+.. code-block:: c
+
+	QT += network  // Esto agrega al proyecto el módulo network
+
+- Por defecto, el módulo 'gui' y el módulo 'core' están incluidos.
+- Para utilizar HTTPS, Qt utiliza OpenSSL https://www.openssl.org/source
+	- Posiblemente sea más fácil descargarlo desde https://slproweb.com/products/Win32OpenSSL.html
+	- Por ejemplo, para 64 bits elegir `Win64 OpenSSL v1.0.2h <https://slproweb.com/download/Win64OpenSSL-1_0_2h.exe>`_
+
+Clase QIODevice
+^^^^^^^^^^^^^^^
+
+.. figure:: images/clase08/qiodevice.png 
+
+- Clase base de los dispositivos de I/O
+- Algunos métodos:
+
+.. code-block:: c
+
+	QByteArray readAll()  		 // Lee todos los datos disponibles.
+	QByteArray read(qint64 max)  // Lee hasta max datos disponibles.
+	QByteArray readLine()  		 // Lee una linea.
+
+Clase QNetworkReply
+^^^^^^^^^^^^^^^^^^^
+
+- Contiene los datos y encabezado de una respuesta
+- Una vez leídos los datos, ya no quedarán disponibles.
+- Para controlar los bytes que se van descargando usar la señal:
+
+.. code-block:: c
+
+	void downloadProgress(qint64 bytesRecibidos, qint64 bytesTotal)
+
+Clase QNetworkRequest
+^^^^^^^^^^^^^^^^^^^^^
+
+- Contiene la información que se envían en la petición
+- Seteamos algún campo de la cabecera con:
+
+.. code-block:: c
+
+	void setRawHeader(const QByteArray &nombre, const QByteArray & valor)
+
+	QNetworkRequest request;
+	request.setUrl(QUrl(ui->le->text()));
+	request.setRawHeader("User-Agent", "MiNavegador 1.0");
+
+Clase QNetworkProxyFactory
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Permite configurar un servidor proxy a nuestra aplicación Qt.
+- Lo siguiente utiliza la configuración del sistema (Chrome y IE, no Firefox).
+
+.. code-block:: c
 
 	#include <QApplication>
-	#include "personal.h"
-	#include <QDebug>
+	#include "principal.h"
+	#include <QNetworkProxyFactory>
 
-	int main(int argc, char** argv)  {
+	int main(int argc, char *argv[])  {
 	    QApplication a(argc, argv);
 
-	    {
-	    Persona *jose = new Estudiante("Jose");
-	    Persona *carlos = new Empleado("Carlos");
+	    QNetworkProxyFactory::setUseSystemConfiguration(true);
 
-	    qDebug() << carlos->verNombre();
-	    qDebug() << jose->verNombre();
-	    carlos->mostrarAlgo();  // Muestra algo? 
-
-	    delete jose;
-	    delete carlos;
-	    }
+	    Principal w;
+	    w.showMaximized();
 
 	    return a.exec();
 	}
-	
-**Para todo hay un mexicano que también lo explica** 
-
-- Clic sobre el GIF para abrir video 
-
-|ImageLink|_
-
-.. |ImageLink| image:: /images/clase10/explicacion_mexicana.gif
-.. _ImageLink: https://www.youtube.com/watch?v=6lIGfzZ4oqo
 
 
-Conexión a base de datos
-^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Ejemplo de la estructura de las tablas en la base de datos**
 
-.. figure:: images/clase11/tablas.png 
-
-- Con Qt se pueden utilizar los siguientes motores de base de datos:
-	- **ODBC (Open DataBase Connectivity)**: 
-		- Estándar de acceso a base de datos
-		- Usado con Microsoft Access en Windows
-		- Está disponible en Windows: Panel de control -> Herramientas administrativas -> ODBC Data sources
-			
-	- **SQLite**
-		- Es un sistema de gestión de bases de datos relacional.
-		- En C y libre
-		- Los datos se almacenan en un archivo
-		- No es cliente-servidor. La librería (dll) tiene funciones para trabajar
-		- No requiere instalación, directamente con un ejecutable
-		- Para Linux, Windows, Mac OS, Android, iOS, BlackBerry OS, Windows Phone, ...
-		- Algunas aplicaciones que usan SQLite: Skype, Firefox, Photoshop, ...
-			
-	- **MySQL**
-		- Quizás el motor de base de datos más utilizado
-		- Usado por los más grandes: Facebook, Twitter, YouTube, Wikipedia, ...
-		- Requiere una instalación más avanzada para usar con Qt dependiendo el SO que se utilice.
-		
-Usando SQLite
-^^^^^^^^^^^^^
-
-**Creación de una base de datos SQLite**
-	
-- Descargar de http://www.sqlite.org/download.html
-- Precompiled Binaries for Windows–Linux–MAC (The command-line shell program)
-- En Linux se puede hacer: ``sudo apt-get install sqlite3``
-- Al descomprimir tenemos el ejecutable sqlite3
-- Creamos una carpeta C:/Qt/db (o /home/db) y copiamos ahí el ejecutable
-- En consola creamos una base de datos, por ejemplo, llamada ``test`` con una tabla ``usuarios``
-
-::
-
-	sqlite3 test
-
-	create table usuarios (
-	    id integer primary key,  (es autoincrementable)
-	    usuario varchar(30),
-	    clave varchar(30),
-	    nombre varchar(50),
-	    apellido varchar(50),
-	    mail varchar(50)
-	);
-
-	// Podemos insertar un registro 
-
-	insert into usuarios (usuario, clave,	nombre, apellido, mail) 
-	values ("cgomez", "1234", "Carlos", "Gomez", "cgomez@gmail.com");
-
-	// Podemos ver el contenido de la tabla "usuario":
-
-	select * from usuarios;
-
-	// Para salir de la base:
-		
-	.exit
-
-En Qt	
-^^^^^
-
-- Requiere QT += sql
-- Para averiguar los controladores disponibles, usamos el método estático:
+Obtener una imagen desde internet
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: c
 
-	qDebug() << QSqlDatabase::drivers();  // Devuelve un QStringList
+	void Principal::slot_descargaFinalizada(QNetworkReply *reply)  {
+	    QImage image = QImage::fromData(reply->readAll());
+	}
 
-- Un objeto QSqlDatabase representa la conexión a la base
-- Elegimos el controlador y conectamos:
+
+**Algunas particularidades de QNetworkReply y QNetworkRequest**
+
+- Para controlar los bytes que se van descargando se puede usar la señal de QNetworkReply:
 
 .. code-block:: c
 
-	QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+	void downloadProgress(qint64 bytesRecibidos, qint64 bytesTotal)
 
-	db.setDatabaseName("C:/Qt/db/test"); 
-	if (db.open())
-	    qDebug() << "Conexión exitosa";
-	else
-	    qDebug() << "No se pudo abrir la base";
+- Los campos de la cabecera HTTP se pueden setear con el método de QNetworkRequest:
 
-- En Windows, para usar el archivo Access ``C:/db/base.mdb`` se hace lo siguiente:
-	
 .. code-block:: c
-		
-	QSqlDatabase db = QSqlDatabase::addDatabase("QODBC");
 
-	db.setDatabaseName("DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};"
-	                   "DBQ=C:/db/base.mdb"); 
-	if (db.open())
-		qDebug() << "Conexión exitosa";
+	void setRawHeader(const QByteArray &nombre, const QByteArray & valor)
+
+	QNetworkRequest request;
+	request.setUrl(QUrl(ui->le->text()));
+	request.setRawHeader("User-Agent", "MiNavegador 1.0");
 
 
+**Ejercicio 8**
+
+- Buscar el correspondiente valor de User-Agent para un navegador en Android y otro para PC
+- Realizar una interfaz que permita colocar en un QLineEdit la url de una página web
+- Validar que si el usuario no escribe el www, que lo agregue, y si no coloca https://, que lo agregue.
+- Realizar dos consultas a la página web con ambos valores de User-Agent
+- Mostrar en dos QTextEdit el código fuente de ambas páginas.
+- Comparar si los códigos son iguales y que un QLabel muestre "Iguales" o "Distintos" según corresponda.
+
+**Ejercicio 9**
+
+- Crear una clase Barra para dar funcionalidad a una barra de progreso
+- Que la barra tenga el siguiente aspecto:
+
+.. figure:: images/clase12/progressbar.png
+
+- Debe tener métodos para setear su valor en porcentaje
+- Usar la señal de downloadProgress de QNetworkReply
+- Crear una interfaz que tenga un QLineEdit para la URL y una Barra.
+- Probarlo con alguna URL que pertenezca a un archivo de tamaño superior a 50MB
 
 
