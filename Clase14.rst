@@ -2,9 +2,9 @@
 
 .. _rcs_subversion:
 
-Clase 14 - POO 2019
+Clase 14 - POO 2020
 ===================
-(Fecha: 10 de mayo)
+(Fecha: 5 de mayo)
 		
 Clase QNetworkRequest
 ^^^^^^^^^^^^^^^^^^^^^
