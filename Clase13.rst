@@ -46,14 +46,4 @@ Clase QIODevice
 	QByteArray read(qint64 max)  // Lee hasta max datos disponibles.
 	QByteArray readLine()  		 // Lee una linea.
 
-Clase QNetworkReply
-^^^^^^^^^^^^^^^^^^^
-
-- Contiene los datos y encabezado de una respuesta
-- Una vez leídos los datos, ya no quedarán disponibles.
-- Para controlar los bytes que se van descargando usar la señal:
-
-.. code-block:: c
-
-	void downloadProgress(qint64 bytesRecibidos, qint64 bytesTotal)
 
