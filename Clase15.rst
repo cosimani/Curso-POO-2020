@@ -29,14 +29,14 @@ Polimorfismo
 
 	class Empleado : public Persona  {
 	public:
-	    Empleado(QString nombre) : Persona(nombre)  {  }
+	    Empleado( QString nombre ) : Persona( nombre )  {  }
 	    QString verNombre()  {  return "Empleado: " + nombre;  }
 	    void mostrarAlgo()  {  qDebug() << "Algo";  }
 	};
 
 	class Estudiante : public Persona  {
 	public:
-	    Estudiante(QString nombre) : Persona(nombre)  {  }
+	    Estudiante( QString nombre ) : Persona( nombre )  {  }
 	    QString verNombre()  {  return "Estudiante: " + nombre;  }
 	};
 
@@ -45,12 +45,12 @@ Polimorfismo
 	#include "personal.h"
 	#include <QDebug>
 
-	int main(int argc, char** argv)  {
+	int main( int argc, char** argv )  {
 	    QApplication a(argc, argv);
 
 	    {
-	    Persona *jose = new Estudiante("Jose");
-	    Persona *carlos = new Empleado("Carlos");
+	    Persona * jose = new Estudiante( "Jose" );
+	    Persona * carlos = new Empleado( "Carlos" );
 
 	    qDebug() << carlos->verNombre();
 	    qDebug() << jose->verNombre();
