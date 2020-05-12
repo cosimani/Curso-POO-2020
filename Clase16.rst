@@ -181,7 +181,7 @@ Clase QCryptographicHash
 
 **Calculadora MD5 online**
 
-http://md5calculator.chromefans.org/?langid=es
+https://hash.online-convert.com/es/generador-md5
 
 
 **Ejercicio 10**
