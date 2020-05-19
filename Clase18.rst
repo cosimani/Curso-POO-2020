@@ -419,3 +419,11 @@ Clase QTimer
 	// donde this es el objeto que tiene definido el slot_update().
 	
 
+
+
+**Ejercicio 12**
+
+- Diseñar una aplicación para una galería de fotos
+- Debe tener una base con una tabla 'imagenes' que tenga las URLs de imágenes
+- Un botón >> y otro << para avanzar o retroceder en la galería de fotos
+- Se podrá navegar sobre las fotos que se descargarán desde internet
