@@ -282,48 +282,6 @@ Registrar eventos (logs)
 
 
 
-Funciones virtuales
-^^^^^^^^^^^^^^^^^^^
-
-- Puede ser interesante llamar a la función de la derivada (en polimorfismo).
-- Al declarar una función como virtual en la clase base, si se superpone en la derivada, al invocar usando el puntero a la clase base, se ejecuta la versión de la derivada.
-
-.. code-block:: c
-
-	class Persona  {
-	public:
-	    Persona( QString nombre ) : nombre( nombre )  {  }
-	    virtual QString verNombre()  {  return "Persona: " + nombre;  }  // Y si no fuera virtual?
-
-	protected:  
-	    QString nombre;
-	};
-
-	class Empleado : public Persona  {
-	public:
-	    Empleado( QString nombre ) : Persona( nombre )  {  }
-	    QString verNombre()  {  return "Empleado: " + nombre;  }
-	};
-
-
-	#include <QApplication>
-	#include "personal.h"
-	#include <QDebug>
-
-	int main( int argc, char** argv )  {
-	    QApplication a( argc, argv) ;
-
-	    {
-	    Persona *carlos = new Empleado( "Carlos" );
-
-	    qDebug() << carlos->verNombre();  // Qué publica?
-
-	    delete carlos;
-	    }
-
-	    return a.exec();
-	}
-
 
 
 
@@ -384,46 +342,3 @@ Uso de Qt Designer
 	}
 
 
-
-
-Clase QTimer
-^^^^^^^^^^^^
-
-- Permite programar tareas de una sola ejecución o tareas repetitivas. 
-- Conectamos la señal ``timeout()`` con algún slot.
-- Con ``start()`` comenzamos y la señal ``timeout()`` se emitirá al terminar.
-
-
-**Ejemplo (repetitivo):** Temporizador que cada 1000 mseg llamará a ``slot_update()``
-
-
-.. code-block:: c
-
-	QTimer * timer = new QTimer( this );
-	connect( timer, SIGNAL( timeout() ), this, SLOT( slot_update() ) );
-	timer->start( 1000 );
- 
-
-**Para una sola ejecución**
-
-- Para temporizador de una sola ejecución usar ``setSingleShot(true)``
-- El método estático ``QTimer::singleShot()`` nos permite la ejecución.
-
-
-**Ejemplo:** Luego de 200 mseg se llamará a ``slot_update()``:
-
-
-.. code-block:: c
-
-	QTimer::singleShot( 200, this, SLOT( slot_update() ) );
-	// donde this es el objeto que tiene definido el slot_update().
-	
-
-
-
-**Ejercicio 12**
-
-- Diseñar una aplicación para una galería de fotos
-- Debe tener una base con una tabla 'imagenes' que tenga las URLs de imágenes
-- Un botón >> y otro << para avanzar o retroceder en la galería de fotos
-- Se podrá navegar sobre las fotos que se descargarán desde internet
