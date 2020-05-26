@@ -22,7 +22,8 @@ Clase QFileDialog
 - Agregar un botón "Iniciar rotación" que genere la rotación de la imagen sobre su centro.
 
 
-**Ejercicio 15** Al ingresar la URL de una imagen deberá mostrarla como en la figura
+**Ejercicio 15** 
+- Al ingresar la URL de una imagen deberá mostrarla como en la figura
 
 .. figure:: images/clase10/imagenes.png  
  
