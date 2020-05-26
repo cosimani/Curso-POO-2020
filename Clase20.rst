@@ -23,6 +23,7 @@ Clase QFileDialog
 
 
 **Ejercicio 15** 
+
 - Al ingresar la URL de una imagen deberá mostrarla como en la figura
 
 .. figure:: images/clase10/imagenes.png  
