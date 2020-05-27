@@ -7,7 +7,7 @@ Clase 21 - POO 2020
 (Fecha: 27 de mayo)
 
 :Tarea para Clase 22:
-	Se tomará un mini examen en computadora para resolver en 50 minutos + 10 minutos para subir el examen a MiUBP
+	Mini examen para resolver en 50 minutos + 10 minutos para subir el examen a MiUBP
 
 	QtDesigner, señales propias, QFileDialog, QTimer, clase propia en QtDesigner, QFile, const
 
