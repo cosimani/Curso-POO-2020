@@ -2,15 +2,9 @@
 
 .. _rcs_subversion:
 
-Clase 24 - POO 2019
+Clase 24 - POO 2020
 ===================
-(Fecha: 18 de junio)
-
-
-Entrega de prácticos
-^^^^^^^^^^^^^^^^^^^^
-
-
+(Fecha: 10 de junio)
 
 
 Graficación 3D
@@ -216,11 +210,6 @@ Uso de la Clase QGLWidget
 
 - Dibujar un triángulo en el plano ``z=-50``
 - Utilizar el teclado para que al presionar la tecla C, el triángulo cambie de color.
-
-
-
-
-
 
 
 Rotación de la escena
