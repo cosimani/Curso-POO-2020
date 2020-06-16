@@ -2,9 +2,10 @@
 
 .. _rcs_subversion:
 
-Clase 25 - POO 2019
+Clase 25 - POO 2020
 ===================
-(Fecha: 21 de junio)
+(Fecha: 16 de junio)
 
-Recuperatorio y entrega de prácticos
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Revisión de prácticos
+^^^^^^^^^^^^^^^^^^^^^
+
